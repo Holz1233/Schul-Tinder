@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schul-Tinder 💖</title>
+    <script src="script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-b from-pink-100 to-pink-300">
+
+    <!-- Registrierungsseite -->
+    <div id="register" class="flex flex-col items-center justify-center h-screen">
+        <h1 class="text-4xl font-bold text-pink-600 mb-6">💖 Schul-Tinder 💖</h1>
+        <p class="text-gray-700 mb-6 text-lg">Erstelle dein romantisches Schulprofil!</p>
+        <div class="bg-white shadow-xl rounded-lg p-6 w-80 text-center">
+            <input type="text" id="name" placeholder="Dein Name" class="input">
+            <input type="number" id="age" placeholder="Dein Alter" class="input">
+            <textarea id="bio" placeholder="Beschreibe dich..." class="input"></textarea>
+            <input type="text" id="hobbies" placeholder="Deine Hobbys" class="input">
+            <input type="text" id="city" placeholder="Deine Stadt" class="input">
+            <input type="text" id="school" placeholder="Deine Schule" class="input">
+            <input type="text" id="class" placeholder="Deine Klasse" class="input">
+            
+            <!-- Profilbild-Upload -->
+            <label for="profile-pic-input" class="file-label">📸 Profilbild hochladen</label>
+            <input type="file" id="profile-pic-input" accept="image/*" class="hidden">
+            <img id="profile-pic-preview" class="hidden preview-img" alt="Vorschau">
+            
+            <button id="create-profile-btn" class="btn mt-6">💘 Profil erstellen</button>
+        </div>
+    </div>
+
+    <!-- Swipe-Seite -->
+    <div id="swipe" class="hidden flex flex-col items-center justify-center h-screen bg-gradient-to-b from-pink-300 to-red-400">
+        <div class="profile-card">
+            <img id="profile-pic" src="" alt="Profilbild" class="rounded-full w-40 h-40 object-cover">
+            <h2 id="profile-name" class="text-2xl font-bold"></h2>
+            <p id="profile-age" class="text-gray-600"></p>
+            <p id="profile-bio"></p>
+            <p id="profile-hobbies" class="text-pink-700 font-semibold"></p>
+            <p id="profile-city" class="text-gray-500"></p>
+            <p id="profile-school" class="text-gray-500"></p>
+            <p id="profile-class" class="text-gray-500"></p>
+            <div class="buttons">
+                <button onclick="swipeLeft()" class="btn btn-dislike">❌</button>
+                <button onclick="swipeRight()" class="btn btn-like">💖</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat-Seite (nach Match) -->
+    <div id="chat" class="hidden fixed bottom-0 right-0 w-full bg-gray-800 text-white p-4 rounded-t-lg shadow-xl">
+        <h2 class="text-xl text-center mb-4">💬 Chat mit deinem Match 💬</h2>
+        <div id="chat-box" class="h-64 overflow-y-auto p-2 bg-gray-900 rounded-lg mb-4">
+            <!-- Chatnachrichten werden hier angezeigt -->
+        </div>
+        <div class="flex items-center">
+            <input type="text" id="chat-input" class="flex-1 p-2 rounded-lg" placeholder="Nachricht...">
+            <button onclick="sendMessage()" class="btn ml-2">Senden</button>
+        </div>
+    </div>
+
+</body>
+</html>
